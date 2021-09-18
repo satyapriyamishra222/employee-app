@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-class Home extends React.Component {
+ function Home() {
 
-    render() {
+  
 
         return (
             <>
@@ -15,5 +15,5 @@ class Home extends React.Component {
 
     }
 
-}
+
 export default Home;
