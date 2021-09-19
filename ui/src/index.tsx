@@ -4,17 +4,17 @@ import  App from './App';
 import reportWebVitals from './reportWebVitals';
 //import reportWebVitals from 'reportWebVitals';
 
-//var state = { hasError: false };
+var state = { hasError: false };
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-  //,()=>{if (state.hasError) {
+  ,()=>{if (state.hasError) {
     // You can render any custom fallback UI
-    //return <h1>Something went wrong.</h1>;
-//  }
-//}
+    return <h1>Something went wrong.</h1>;
+  }
+}
 );
 
 
