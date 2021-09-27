@@ -8,9 +8,11 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import { useHistory } from "react-router-dom";
 import Home from '../Home';
+import { useTranslation } from 'react-i18next';
 
 //import './login.css';
 export default function Login(props: any): any {
+    const { t, i18n } = useTranslation();
     let history = useHistory();
     const [state, setState] = React.useState({
         email: "",
@@ -67,8 +69,8 @@ export default function Login(props: any): any {
             <Grid item xs={6} className="bg-img" >
                 <Grid container className="bg-mask" justifyContent="center" alignItems="center">
                     <div className="promo-box">
-                        <h1 className="title"> Login Form </h1>
-                        <p className="sub-title">Hi! This is EMS login page</p>
+                        <h1 className="title"> {t(`intro.label`)} </h1>
+                        <p className="sub-title"> {t("WelcomeLogin.Label")}</p>
                     </div>
                 </Grid>
 
