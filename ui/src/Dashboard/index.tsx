@@ -4,10 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import { useHistory } from "react-router-dom";
-import Home from '../Home';
 import { useTranslation } from 'react-i18next';
-import { Email } from '@material-ui/icons';
-
+import { store } from "../utility/localStorage";
 
 export default function Login(props: any): any {
     const { t, i18n } = useTranslation();
@@ -18,10 +16,6 @@ export default function Login(props: any): any {
 
     });
     let person = state.email;
-    const getPerson = () => {
-        return person;
-    }
-
 
     const handleEmail = (e: any) => {
         let val = e.target.value;
@@ -36,14 +30,14 @@ export default function Login(props: any): any {
 
     const redirectDashbord = () => {
         props.LoginFun();
-        localStorage.setItem("username", person);
+        store("username", person);
         history.push("/home");
     }
 
     const isVlaidLogin = () => {
         if (state.email === 'admin' && state.pass === "admin") {
             person = state.email;
-            localStorage.setItem("username", person);
+            store("username", person);
             redirectDashbord()
             return true
         }
