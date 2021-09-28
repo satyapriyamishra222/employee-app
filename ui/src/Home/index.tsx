@@ -3,9 +3,10 @@ import React from 'react';
 //import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlinedIcon';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Login from "../Dashboard/index";
-import { get } from "../utility/localStorage"
+
 
 import EditIcon from '@material-ui/icons/Edit';
+import { get } from '../utility/localStorage';
 
 //import info from "./info.js";
 
@@ -22,12 +23,10 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 function Home() {
-    let user = get("username");
-    // let user = localStorage.getItem("username");
-    console.log(user);
+    let user = get("key");
     return (
         <><div>
-            <h1> welcome {user}  </h1>
+            <h1> welcome {user} </h1>
         </div><TableContainer component={Paper}>
                 <Table
                     aria-label="simple table"
