@@ -6,17 +6,27 @@ import FormControl from '@material-ui/core/FormControl';
 import { useHistory } from "react-router-dom";
 import Home from '../Home';
 import { useTranslation } from 'react-i18next';
+import { Email } from '@material-ui/icons';
+
+
 export default function Login(props: any): any {
     const { t, i18n } = useTranslation();
     let history = useHistory();
     const [state, setState] = React.useState({
         email: "",
         pass: "",
+
     });
+    let person = state.email;
+    const getPerson = () => {
+        return person;
+    }
+
 
     const handleEmail = (e: any) => {
         let val = e.target.value;
-        setState({ ...state, email: val });
+        const email = setState({ ...state, email: val });
+
     };
 
     const handlePass = (e: any) => {
@@ -26,11 +36,14 @@ export default function Login(props: any): any {
 
     const redirectDashbord = () => {
         props.LoginFun();
+        localStorage.setItem("username", person);
         history.push("/home");
     }
 
     const isVlaidLogin = () => {
         if (state.email === 'admin' && state.pass === "admin") {
+            person = state.email;
+            localStorage.setItem("username", person);
             redirectDashbord()
             return true
         }
@@ -56,7 +69,7 @@ export default function Login(props: any): any {
             <Grid item xs={6}>
                 <Grid container justifyContent="center" alignItems="center" className="h-100" direction="column">
                     <h1 className="login-title">{t(`intro.label2`)}</h1>
-                    <form onSubmit={handleLogin}>
+                    <form onSubmit={handleLogin} >
                         <FormControl>
                             <TextField value={state.email} placeholder="Email" onChange={handleEmail} id="email" size="small" variant="outlined" />
                         </FormControl>
