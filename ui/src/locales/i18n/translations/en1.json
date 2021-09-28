@@ -1,8 +1,10 @@
 {
     "intro.label": "Hello",
+    "intro.label1": "Login",
+    "intro.label2": "Login Form",
     "thankyou.label": "Thank you",
     "details.label": "is an internationalization-framework which offers a complete solution to localize your product from web to mobile and desktop:is an internationalization-framework which offers a complete solution to localize your product from web to mobile and desktop",
     "Advantages.label": "Advantages",
     "Advantagesdetails.label": "Flexibility to use other packages: Flexibility to use other packages",
-    "WelcomeLogin.Label": "Welcome to Login Form"
+    "WelcomeLogin.Label": "Hi! This is EMS login page"
 }
