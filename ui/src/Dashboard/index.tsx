@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-// import loginSer from "./login.service";
-// import authSer from "../shared/service/auth";
-
+import { get, store } from "../utility/localStorage"
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import { useHistory } from "react-router-dom";
 import Home from '../Home';
 import { useTranslation } from 'react-i18next';
 
-//import './login.css';
+
 export default function Login(props: any): any {
     const { t, i18n } = useTranslation();
     let history = useHistory();
@@ -18,6 +16,7 @@ export default function Login(props: any): any {
         email: "",
         pass: "",
     });
+
 
     const handleEmail = (e: any) => {
         let val = e.target.value;
@@ -31,19 +30,15 @@ export default function Login(props: any): any {
 
     const redirectDashbord = () => {
         props.LoginFun();
+
         let url = "/home"
         history.push(url)
     }
-    // useEffect(() => {
-    //     if (localStorage.getItem('user-info')) {
-    //         history.push("/home");
-    //     }
-    // }, [])
-
 
     const isVlaidLogin = () => {
         if (state.email === 'admin' && state.pass === "admin") {
-            // console.log("valid user")
+            let person = state.email;
+            store("username", person);
             redirectDashbord()
             return true
         }
@@ -53,16 +48,10 @@ export default function Login(props: any): any {
 
 
     const handleLogin = function (e: any) {
+
         e.preventDefault();
         isVlaidLogin()
-        //     loginSer.login(state).then((res) => {
-        //         console.log(res);
-        //         authSer.login(res);
-        //         //    authSer.logout(res);    
-        //     }).catch((error) => {
-        //         console.log(error.message);
-        //     })
-        // }
+
     }
     return (<>
         <Grid container className="h-100 login-wrp" direction="row" >
